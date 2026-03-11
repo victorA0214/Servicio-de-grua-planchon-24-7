@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Servicio de grua planchon 24/7</title>
+        <link rel="stylesheet" href="diseño.css">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Servicio de Grúa Planchón en Pasto</h1>
+                <p>Atención 24 horas, los 7 días de la semana</p>
+            </header>
+        <section id="informacion">
+            <h2>¿Quiénes somos?</h2>
+            <p>Somos una empresa dedicada al transporte de vehículos con grúa planchón en la ciudad de Pasto y sus alrededores. Contamos con un equipo profesional y vehículos en óptimas condiciones para garantizar la seguridad de tu auto.</p>
+        </section>
+        <section id="fotos">
+            <h2>Nuestros vehículos</h2>
+            <p>Algunas fotos de nuestra grúa planchón:</p>
+            <img src="grua.jpg" alt="Grúa planchón frontal" width="300">
+        </section>
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>Teléfonos de información:</p>
+            <ul>
+                <li>Celular: <a class="button phone" href="tel:+573154119349">
+                <img src="llama.gif" alt="Llamar" width="24" style="vertical-align: middle;">
+                &nbsp;+57 3154119349
+            </a></li>
+            </ul>
+            <p>WhatsApp:</p>
+            <p><a class="button whatsapp" href="https://wa.me/573001234567" target="_blank">
+                <img src="what.gif" alt="WhatsApp" width="24" style="vertical-align: middle;">
+                &nbsp;Contáctanos por WhatsApp
+            </a></p>
+        </section>
+        <!-- nueva sección para agendar citas -->
+        <section id="agendar">
+            <h2>Agenda una cita</h2>
+            <form action="https://script.google.com/macros/s/AKfycbwT7ybnUFmHu-Cw9Qw9momWvSQEnT1naqYJ2Vun7JZNzu93TOwmvfJAt7CjACuIk99rdw/exec" method="post">
+                <fieldset>
+                    <legend>Información del vehículo</legend>
+                    <label>Marca: <input type="text" name="marca" required></label><br>
+                    <label>Modelo: <input type="text" name="modelo" required></label>
+                </fieldset>
+                <fieldset>
+                    <legend>Información del propietario</legend>
+                    <label>Nombre: <input type="text" name="nombre" required></label><br>
+                    <label>Teléfono: <input type="tel" name="telefono" required></label>
+                </fieldset>
+                <fieldset>
+                    <legend>Recogida</legend>
+                    <label>Dirección o lugar: <input type="text" name="ubicacion" required></label>
+                </fieldset>
+                <fieldset>
+                    <legend>Fecha y hora</legend>
+                    <label>Fecha: <input type="date" name="fecha" required></label><br>
+                    <label>Hora: <input type="time" name="hora" required></label>
+                </fieldset>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+        <footer>
+            <p>&copy; 2026 Servicio de Grúa Planchón Pasto</p>
+        </footer>
+    </body>
+</html>
