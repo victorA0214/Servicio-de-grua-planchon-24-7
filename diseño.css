@@ -1,105 +1,83 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    /* lively gradient backdrop with cheerful tones */
-    background: linear-gradient(135deg, #ffefba 0%, #ffffff 100%);
-    color: #333;
+/* variables de tema */
+:root {
+    --color-primary: #0066cc;
+    --color-primary-dark: #004d99;
+    --color-accent: #ff5722;
+    --color-accent-light: #ff9800;
+    --color-bg: #fdfdfd;
+    --color-bg-alt: #fafafa;
+    --color-text: #333;
+    --color-heading: var(--color-primary);
+    --radius: 8px;
+    --transition: 0.3s ease;
+    --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* animated entrance */
+
+/* reset ligero */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    line-height: 1.6;
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-bg) 100%);
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    animation: fadeIn 0.8s var(--transition);
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-.container {
-    animation: fadeIn 0.8s ease-out;
-}
-
-header, section, footer {
-    margin-bottom: 30px;
-}
-
-/* enhanced vibes for sections */
-section {
-    padding: 20px;
-    background: linear-gradient(120deg, #fff3e0, #ffe0b2);
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-}
-
-section:hover {
-    transform: translateY(-5px);
-}
-
-section:nth-child(even) {
-    background: linear-gradient(120deg, #e0f7fa, #b2ebf2);
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-a {
-    color: #0066cc;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* adicional: cabecera con fondo y texto blanco */
 header {
-    background: linear-gradient(90deg, #004d99, #0066cc);
-    color: #fff;
-    padding: 30px 0;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary));
+    color: #fff;
+    padding: 3rem 1rem;
+    clip-path: polygon(0 0,100% 0,100% 85%,0 100%);
 }
 
-/* floating grúa icon decorations */
-header::before,
 header::after {
     content: '';
     position: absolute;
-    width: 100px;
-    height: 100px;
-    background: url('grua.jpg') no-repeat center/contain;
-    opacity: 0.2;
-    animation: float 6s ease-in-out infinite;
-}
-header::before { top: 10px; left: 10px; }
-header::after { bottom: 10px; right: 10px; animation-delay: 3s; }
-
-@keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('fondo-grua.jpg') center/cover no-repeat;
+    opacity: 0.1;
+    z-index: 0;
 }
 
 header h1 {
-  font-size: 2.5em;
-  margin: 0;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-  /* animated gradient text effect */
-  background: linear-gradient(90deg, #ff5722, #ff9800, #ff5722);
-  background-size: 200% 200%; /* 👈 necesario */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textShift 5s ease infinite;
+    position: relative;
+    z-index: 1;
+    font-size: 2.5rem;
+    margin: 0;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: textShift 5s ease-in-out infinite;
 }
 
+header p {
+    position: relative;
+    z-index: 1;
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+}
 
 @keyframes textShift {
     0% { background-position: 0% 50%; }
@@ -107,125 +85,90 @@ header h1 {
     100% { background-position: 0% 50%; }
 }
 
-header p {
-    font-size: 1.2em;
+section {
+    background: var(--color-bg-alt);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: var(--radius);
+    border-top: 4px solid var(--color-accent);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform var(--transition), box-shadow var(--transition);
 }
 
-/* button style for contact links */
-.button {
-    display: inline-block;
-    background: linear-gradient(90deg,#ff5722,#ff9800);
-    color: #fff;
-    padding: 15px 25px;
-    border-radius: 25px;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-    text-decoration: none;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    animation: pulse 2s infinite;
+section:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+section:hover { transform: translateY(-5px); }
+section:nth-child(even) { background: var(--color-bg); }
+
+h2 {
+    margin-top: 0;
+    color: var(--color-heading);
+    font-size: 2rem;
+    position: relative;
 }
 
-.button:hover {
-    background: linear-gradient(90deg,#ff9800,#ff5722);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
-}
-
-/* special WhatsApp callout */
-.whatsapp {
-    background: #25d366 !important;
-}
-/* estilos para el formulario de citas */
-#agendar {
-    padding: 20px;
-    background: linear-gradient(120deg, #f3e5f5, #e1bee7);
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-#agendar form {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
-}
-#agendar fieldset {
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    padding: 10px;
-}
-#agendar legend {
-    font-weight: bold;
-    color: #512da8;
-}
-#agendar label {
+h2::after {
+    content: '';
     display: block;
-    margin-bottom: 8px;
+    width: 60px;
+    height: 4px;
+    background: var(--color-accent);
+    margin: 0.5rem auto;
+    border-radius: var(--radius);
 }
-#agendar input[type="text"],
-#agendar input[type="number"],
-#agendar input[type="tel"],
-#agendar input[type="email"],
-#agendar input[type="date"],
-#agendar input[type="time"] {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    margin-top: 4px;
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    display: block;
+    margin: 1rem auto;
 }
-#agendar button[type="submit"] {
-    background: #512da8;
-    color: #fff;
-    padding: 10px 20px;
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.8rem;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s;
+    border-radius: var(--radius);
+    transition: background var(--transition), transform var(--transition);
 }
-#agendar button[type="submit"]:hover {
-    background: #311b92;
-}
-.whatsapp:hover {
-    background: #1ebe5a !important;
-}
+
+.button:hover { background: linear-gradient(90deg, var(--color-accent-light), var(--color-accent)); transform: scale(1.1) rotate(-1deg); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+
+.whatsapp { background: #25d366 !important; }
+.whatsapp:hover { background: #1ebe5a !important; }
+
 
 footer {
-    font-size: 0.9em;
+    padding: 1rem 0;
+    font-size: 0.9rem;
     color: #777;
-    border-top: 1px solid #ddd;
-    padding-top: 10px;
+    background: var(--color-bg-alt);
+    border-top: 1px solid var(--color-bg);
 }
 
-/* estilos para secciones internas */
-#informacion h2,
-#fotos h2,
-#contacto h2 {
-    color: #ff5722;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+@media (max-width: 768px) {
+    header h1 { font-size: 2rem; }
+    .button { width: 90%; }
 }
 
-/* adaptaciones móviles */
-@media (max-width: 600px) {
-    .container {
-        padding: 10px;
-    }
-    header h1 {
-        font-size: 1.5em;
-    }
+@media (max-width: 480px) {
+    header { padding: 2rem 1rem; }
 }
-
-<fieldset>
-    <legend>Información del vehículo</legend>
-    <label>Marca: <input type="text" name="marca" required></label><br>
-    <label>Modelo: <input type="text" name="modelo" required></label>
-</fieldset>
-<fieldset>
-    <legend>Información del propietario</legend>
-    <label>Nombre: <input type="text" name="nombre" required></label><br>
-    <label>Teléfono: <input type="tel" name="telefono" required></label>
-</fieldset>
